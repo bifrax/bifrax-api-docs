@@ -16,10 +16,6 @@
 Security Type | Description
 ------------ | ------------
 NONE | Endpoint can be accessed freely.
-TRADE | Endpoint requires sending a valid API-Key and signature.
-USER_DATA | Endpoint requires sending a valid API-Key and signature.
-USER_STREAM | Endpoint requires sending a valid API-Key.
-MARKET_DATA | Endpoint requires sending a valid API-Key.
 
 
 ### Check server time
