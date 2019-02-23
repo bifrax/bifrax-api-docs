@@ -36,7 +36,8 @@ NONE
 {
   "timezone": "UTC",
   "serverTime": 1550926234362
-}```
+}
+```
 
 ### Exchange information
 ```
