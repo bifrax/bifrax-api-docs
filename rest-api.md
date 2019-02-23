@@ -62,10 +62,11 @@ NONE
   "symbols": [
     {
       "symbol": "BTC/KRW",
-      "quoteAsset": "KRW",
       "baseName": "Bitcoin",
-      "minPrice": "1000", // minimum price
-      "minQty": ".003"  // minimum quantity
+      "baseAsset": "BTC",
+      "quoteAsset": "KRW",
+      "minPrice": "1000",
+      "minQty": ".003"
     }
 }
 ```
@@ -76,41 +77,37 @@ NONE
 GET /api/v1/depth
 ```
 
-**Weight:**
-Adjusted based on the limit:
-
-
-Limit | Weight
------------- | ------------
-5, 10, 20, 50, 100 | 1
-500 | 5
-1000 | 10
-
 **Parameters:**
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 symbol | STRING | YES |
-limit | INT | NO | Default 100; max 1000. Valid limits:[5, 10, 20, 50, 100, 500, 1000]
 
-**Caution:** setting limit=0 can return a lot of data.
+
+**Caution:** maxium list count is 20 
 
 **Response:**
 ```javascript
 {
-  "lastUpdateId": 1027024,
+  "time": 1550926537351,
   "bids": [
     [
-      "4.00000000",     // PRICE
-      "431.00000000",   // QTY
-      []                // Ignore.
+      "3995000.00000000",
+      "0.56770000"
+    ],
+    [
+      "3996000.00000000",
+      "0.80580000"
     ]
   ],
   "asks": [
     [
-      "4.00000200",
-      "12.00000000",
-      []
+      "3994000.00000000",
+      "1.35058000"
+    ],
+    [
+      "3991000.00000000",
+      "1.60000000"
     ]
   ]
 }
