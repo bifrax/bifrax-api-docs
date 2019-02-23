@@ -7,4 +7,4 @@
 
 Name | Description
 ------------ | ------------ 
-[rest-api.md](./rest-api.md) | Details on the Rest API (/api)
+[public-rest-api.md](./public-rest-api.md) | Details on the Public Rest API (/api)
