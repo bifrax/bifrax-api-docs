@@ -28,9 +28,6 @@ GET /api/v1/time
 ```
 Test connectivity to the Rest API and get the current server time.
 
-**Weight:**
-1
-
 **Parameters:**
 NONE
 
@@ -46,9 +43,6 @@ NONE
 GET /api/v1/exchangeInfo
 ```
 Current exchange trading rules and symbol information
-
-**Weight:**
-1
 
 **Parameters:**
 NONE
@@ -115,13 +109,10 @@ symbol | STRING | YES |
 
 ### Recent trades list
 ```
-GET /api/v1/trades
+GET /api/v1/trades ( develop )
 ```
 Get recent trades (up to last 500).
 
-**Weight:**
-1
-
 **Parameters:**
 
 Name | Type | Mandatory | Description
@@ -142,38 +133,6 @@ limit | INT | NO | Default 500; max 1000.
   }
 ]
 ```
-
-### Old trade lookup (MARKET_DATA)
-```
-GET /api/v1/historicalTrades
-```
-Get older trades.
-
-**Weight:**
-5
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-symbol | STRING | YES |
-limit | INT | NO | Default 500; max 1000.
-fromId | LONG | NO | TradeId to fetch from. Default gets most recent trades.
-
-**Response:**
-```javascript
-[
-  {
-    "id": 28457,
-    "price": "4.00000100",
-    "qty": "12.00000000",
-    "time": 1499865549590,
-    "isBuyerMaker": true,
-    "isBestMatch": true
-  }
-]
-```
-
 
 ### Kline/Candlestick data
 ```
@@ -182,39 +141,36 @@ GET /api/v1/klines
 Kline/candlestick bars for a symbol.
 Klines are uniquely identified by their open time.
 
-**Weight:**
-1
-
 **Parameters:**
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 symbol | STRING | YES |
-interval | ENUM | YES |
-startTime | LONG | NO |
-endTime | LONG | NO |
+interval | STRING | YES | ['1m', '3m', '5m', '15m', '30m', '60m', '180m', '1d', '3d', '1w', '2w', '3w', '4w', '1M', '3M', '6M', '1y']
 limit | INT | NO | Default 500; max 1000.
+nextKey | STRING | NO | for paging
 
 * If startTime and endTime are not sent, the most recent klines are returned.
 
 **Response:**
 ```javascript
-[
-  [
-    1499040000000,      // Open time
-    "0.01634790",       // Open
-    "0.80000000",       // High
-    "0.01575800",       // Low
-    "0.01577100",       // Close
-    "148976.11427815",  // Volume
-    1499644799999,      // Close time
-    "2434.19055334",    // Quote asset volume
-    308,                // Number of trades
-    "1756.87402397",    // Taker buy base asset volume
-    "28.46694368",      // Taker buy quote asset volume
-    "17928899.62484339" // Ignore.
+{
+  "serverTime": 1550930645577,
+  "nextKey": "20190220063000",
+  "openPrice": "0.00000000",
+  "highPrice": "0.00000000",
+  "lowPrice": "0.00000000",
+  "data": [
+    {
+      "time": 1550834460577,
+      "openPrice": "3994000.00000000",
+      "lowPrice": "3994000.00000000",
+      "closedPrice": "3994000.00000000",
+      "volume": "0.00300000",
+      "sign": ""
+    },
   ]
-]
+}
 ```
 
 
