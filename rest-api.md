@@ -107,32 +107,6 @@ symbol | STRING | YES |
 }
 ```
 
-### Recent trades list
-```
-GET /api/v1/trades ( develop )
-```
-Get recent trades (up to last 500).
-
-**Parameters:**
-
-Name | Type | Mandatory | Description
------------- | ------------ | ------------ | ------------
-symbol | STRING | YES |
-limit | INT | NO | Default 500; max 1000.
-
-**Response:**
-```javascript
-[
-  {
-    "id": 28457,
-    "price": "4.00000100",
-    "qty": "12.00000000",
-    "time": 1499865549590,
-    "isBuyerMaker": true,
-    "isBestMatch": true
-  }
-]
-```
 
 ### Kline/Candlestick data
 ```
@@ -177,7 +151,7 @@ nextKey | STRING | NO | for paging
 
 ### Symbol price ticker
 ```
-GET /api/v3/ticker/price
+GET /api/v1/ticker/price
 ```
 Latest price for a symbol or symbols.
 
@@ -188,28 +162,30 @@ Latest price for a symbol or symbols.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-symbol | STRING | NO |
+symbol | STRING ARRAY | NO |
 
-* If the symbol is not sent, prices for all symbols will be returned in an array.
 
 **Response:**
 ```javascript
-{
-  "symbol": "LTCBTC",
-  "price": "4.00000200"
-}
+
 ```
 OR
 ```javascript
-[
-  {
-    "symbol": "LTCBTC",
-    "price": "4.00000200"
-  },
-  {
-    "symbol": "ETHBTC",
-    "price": "0.07946600"
-  }
-]
+{
+  "data": [
+    {
+      "symbol": "BTC/KRW",
+      "price": "3994000.00000000"
+    },
+    {
+      "symbol": "ETH/KRW",
+      "price": "115500.00000000"
+    },
+    {
+      "symbol": "EOS/KRW",
+      "price": "2525.00000000"
+    }
+  ]
+}
 ```
 
