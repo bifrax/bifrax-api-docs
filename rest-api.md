@@ -167,10 +167,6 @@ symbol | STRING ARRAY | NO |
 
 **Response:**
 ```javascript
-
-```
-OR
-```javascript
 {
   "data": [
     {
