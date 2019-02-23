@@ -55,34 +55,18 @@ NONE
 
 **Response:**
 ```javascript
+
 {
-  "timezone": "UTC",
-  "serverTime": 1508631584636,
-  "rateLimits": [
-    // These are defined in the `ENUM definitions` section under `Rate limiters (rateLimitType)`.
-    // All limits are optional.
-  ],
-  "exchangeFilters": [
-    // There are defined in the `Filters` section.
-    // All filters are optional.
-  ],
-  "symbols": [{
-    "symbol": "ETHBTC",
-    "status": "TRADING",
-    "baseAsset": "ETH",
-    "baseAssetPrecision": 8,
-    "quoteAsset": "BTC",
-    "quotePrecision": 8,
-    "orderTypes": [
-      // These are defined in the `ENUM definitions` section under `Order types (orderTypes)`.
-      // All orderTypes are optional.
-    ],
-    "icebergAllowed": false,
-    "filters": [
-      // There are defined in the `Filters` section.
-      // All filters are optional.
-    ]
-  }]
+  "timezone": "Asia/Seoul",
+  "serverTime": 1550925268628,
+  "symbols": [
+    {
+      "symbol": "BTC/KRW",
+      "quoteAsset": "KRW",
+      "baseName": "Bitcoin",
+      "minPrice": "1000", // minimum price
+      "minQty": ".003"  // minimum quantity
+    }
 }
 ```
 
