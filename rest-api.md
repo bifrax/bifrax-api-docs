@@ -57,7 +57,7 @@ NONE
 ```javascript
 
 {
-  "timezone": "Asia/Seoul",
+  "timezone": "UTC",
   "serverTime": 1550925268628,
   "symbols": [
     {
