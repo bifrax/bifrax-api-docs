@@ -37,9 +37,9 @@ NONE
 **Response:**
 ```javascript
 {
-  "serverTime": 1499827319559
-}
-```
+  "timezone": "UTC",
+  "serverTime": 1550926234362
+}```
 
 ### Exchange information
 ```
