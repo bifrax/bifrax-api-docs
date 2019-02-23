@@ -162,7 +162,7 @@ Latest price for a symbol or symbols.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-symbol | STRING ARRAY | NO |
+symbol | STRING OR STRING ARRAY | YES |
 
 
 **Response:**
