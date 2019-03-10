@@ -100,4 +100,40 @@ price | 0.1
     (HMAC SHA256)
     [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order' -d '{"symbol":"LTC/BTC", "side":"BUY", "type":"LIMIT", "quantity":"1", "price":"0.1", "signature":"125f219efc471fdf178fc4939c5a2581989cdda44ee7427ddea259582e4fdafd"}'
 
+## Orders endpoints
+
+### New order (TRADE)
+```
+POST /api/v1/order  (HMAC SHA256)
+```
+Send in a new order.
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+symbol | STRING | YES |
+side | ENUM | YES | `BUY`, `SELL`
+type | ENUM | YES | `MARKET`, `LIMIT`
+quantity | DECIMAL | YES |
+price | DECIMAL | NO |
+
+Additional mandatory parameters based on `type`:
+
+Type | Additional mandatory parameters
+------------ | ------------
+`LIMIT` | `quantity`, `price`
+`MARKET` | `quantity`
+
+
+**Response RESULT:**
+```javascript
+{
+    "orderId": "344287",
+    "clientOrderId": "201903100228344287",
+    "symbol": "BTC/KRW",
+    "quantity": "0.003"
+}
+```
+
 
