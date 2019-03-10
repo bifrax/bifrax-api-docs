@@ -50,23 +50,27 @@ Key | Value
 apiKey | testApiKey
 secretKey | testSecretKey
 
+Request is must be sorted params(key) alphabetically.
 
 Parameter | Value
 ------------ | ------------
-symbol | LTC/BTC
-side | BUY
-type | LIMIT
-quantity | 1
+exchangeType| LOCAL
 price | 0.1
+quantity | 1
+side | BUY
+symbol | LTC/BTC
+type | LIMIT
+
+
 
 
 ### Example 1: As a query string (Just example, Get mothd is not work for order)
-* **queryString:** symbol=LTC/BTC&side=BUY&type=LIMIT&quantity=1&price=0.1
+* **queryString:** exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT
 * **HMAC SHA256 signature:**
 
     ```
-    [linux]$ echo -n "symbol=LTC/BTC&side=BUY&type=LIMIT&quantity=1&price=0.1" | openssl dgst -sha256 -hmac "testSecretKey"
-    (stdin)= 125f219efc471fdf178fc4939c5a2581989cdda44ee7427ddea259582e4fdafd
+    [linux]$ echo -n "exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT" | openssl dgst -sha256 -hmac "testSecretKey"
+    (stdin)= aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96
     ```
 
 
@@ -74,23 +78,23 @@ price | 0.1
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order?LTC/BTC&side=BUY&type=LIMIT&quantity=1&price=0.1&signature=125f219efc471fdf178fc4939c5a2581989cdda44ee7427ddea259582e4fdafd'
+    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order?exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT&signature=aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96'
     ```
 
 ### Example 2: As a request body
 * **requestBody:** 
   
-  symbol=LTC/BTC&side=BUY&type=LIMIT&quantity=1&price=0.1
+  exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT
   
   or
   
-  {"symbol":"LTC/BTC", "side":"BUY", "type":"LIMIT", "quantity":"1", "price":"0.1"}
+  {"exchangeType":"LOCAL", "price":"0.1", "quantity":"1", "side":"BUY", "symbol":"LTC/BTC", "type":"LIMIT"}
   
 * **HMAC SHA256 signature:**
 
     ```
-    [linux]$ echo -n "symbol=LTC/BTC&side=BUY&type=LIMIT&quantity=1&price=0.1" | openssl dgst -sha256 -hmac "testSecretKey"
-    (stdin)= 125f219efc471fdf178fc4939c5a2581989cdda44ee7427ddea259582e4fdafd
+    [linux]$ echo -n "exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT" | openssl dgst -sha256 -hmac "testSecretKey"
+    (stdin)= aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96
     ```
 
 
@@ -98,9 +102,15 @@ price | 0.1
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order' -d '{"symbol":"LTC/BTC", "side":"BUY", "type":"LIMIT", "quantity":"1", "price":"0.1", "signature":"125f219efc471fdf178fc4939c5a2581989cdda44ee7427ddea259582e4fdafd"}'
+    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order' -d '{"exchangeType":"LOCAL", "price":"0.1", "quantity":"1", "side":"BUY", "symbol":"LTC/BTC", "type":"LIMIT", "signature":"aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96"}'
 
 ## Orders endpoints
+
+### exchangeType
+"LOCAL": local currency exchanges
+"SPOT": exchange between coins
+"FUTURE": future exchanges
+
 
 ### New order (TRADE)
 ```
@@ -110,8 +120,11 @@ Send in a new order.
 
 **Parameters:**
 
+* Request is must be sorted params(key) alphabetically.
+
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
+exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
 symbol | STRING | YES |
 side | ENUM | YES | `BUY`, `SELL`
 type | ENUM | YES | `MARKET`, `LIMIT`
@@ -146,8 +159,11 @@ Get all open orders on a symbol.
 
 **Parameters:**
 
+* Request is must be sorted params(key) alphabetically.
+
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
+exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
 symbol | STRING | YES |
 signature | STRING | YES |
 
