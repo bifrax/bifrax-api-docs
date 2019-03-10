@@ -43,7 +43,7 @@ NONE
 
 ### Exchange information
 ```
-GET /api/v1/exchangeInfo
+GET /v1/exchangeInfo
 ```
 Current exchange trading rules and symbol information
 
@@ -71,7 +71,7 @@ NONE
 ## Market Data endpoints
 ### Order book
 ```
-GET /api/v1/depth
+GET /v1/depth
 ```
 
 **Parameters:**
@@ -113,7 +113,7 @@ symbol | STRING | YES |
 
 ### Kline/Candlestick data
 ```
-GET /api/v1/klines
+GET /v1/klines
 ```
 Kline/candlestick bars for a symbol.
 Klines are uniquely identified by their open time.
@@ -154,7 +154,7 @@ nextKey | STRING | NO | for paging
 
 ### Symbol price ticker
 ```
-GET /api/v1/ticker/price
+GET /v1/ticker/price
 ```
 Latest price for a symbol or symbols.
 
