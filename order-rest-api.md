@@ -117,6 +117,7 @@ side | ENUM | YES | `BUY`, `SELL`
 type | ENUM | YES | `MARKET`, `LIMIT`
 quantity | DECIMAL | YES |
 price | DECIMAL | NO |
+signature | STRING | YES |
 
 Additional mandatory parameters based on `type`:
 
@@ -148,7 +149,7 @@ Get all open orders on a symbol.
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 symbol | STRING | YES |
-
+signature | STRING | YES |
 
 **Response:**
 ```javascript
