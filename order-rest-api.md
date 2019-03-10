@@ -110,11 +110,9 @@ type | LIMIT
 
 * ExchangeType
 
-- "LOCAL": local currency exchanges
-
-- "SPOT": exchange between coins
-
-- "FUTURE": future exchanges
+"LOCAL": local currency exchanges
+"SPOT": exchange between coins
+"FUTURE": future exchanges
 
 
 ### New order (TRADE)
