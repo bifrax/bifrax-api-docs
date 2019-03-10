@@ -79,6 +79,7 @@ price | 0.1
 
 ### Example 2: As a request body
 * **requestBody:** 
+  
   symbol=LTC/BTC&side=BUY&type=LIMIT&quantity=1&price=0.1
   
   or
@@ -97,6 +98,6 @@ price | 0.1
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order' -d '{"symbol":"LTC/BTC", "side":"BUY", "type":"LIMIT", "quantity":"1", "price":"0.1", "signature":"c8db56825ae71d6d79447849e617115f4a920fa2acdcab2b053c4b2838bd6b71"}'
+    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order' -d '{"symbol":"LTC/BTC", "side":"BUY", "type":"LIMIT", "quantity":"1", "price":"0.1", "signature":"125f219efc471fdf178fc4939c5a2581989cdda44ee7427ddea259582e4fdafd"}'
 
 
