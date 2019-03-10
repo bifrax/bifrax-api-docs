@@ -136,4 +136,50 @@ MARKET | `quantity`
 }
 ```
 
+### Current open all orders 
+```
+GET /api/v3/orders  (HMAC SHA256)
+```
+Get all open orders on a symbol. 
 
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+symbol | STRING | YES |
+
+
+**Response:**
+```javascript
+{
+    "orders": [
+        {
+            "orderId": "194671",
+            "origOrderId": "0",
+            "clientOrderId": "201903090636194671",
+            "symbol": "BTC/KRW",
+            "side": "BUY",
+            "type": "LIMIT",
+            "price": "3755000",
+            "origQty": "0.003",
+            "executedQty": "0",
+            "remainedQty": "0.003",
+            "txTime": 1552113370000
+        },
+        {
+            "orderId": "194517",
+            "origOrderId": "0",
+            "clientOrderId": "201903090633194517",
+            "symbol": "BTC/KRW",
+            "side": "BUY",
+            "type": "LIMIT",
+            "price": "3755000",
+            "origQty": "0.003",
+            "executedQty": "0",
+            "remainedQty": "0.003",
+            "txTime": 1552113194000
+        }
+    ]
+}
+```
