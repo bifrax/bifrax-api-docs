@@ -122,8 +122,8 @@ Additional mandatory parameters based on `type`:
 
 Type | Additional mandatory parameters
 ------------ | ------------
-`LIMIT` | `quantity`, `price`
-`MARKET` | `quantity`
+LIMIT | `quantity`, `price`
+MARKET | `quantity`
 
 
 **Response RESULT:**
