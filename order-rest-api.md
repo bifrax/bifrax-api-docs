@@ -123,7 +123,7 @@ Send in a new order.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
 symbol | STRING | YES |
 side | ENUM | YES | `BUY`, `SELL`
 type | ENUM | YES | `MARKET`, `LIMIT`
@@ -161,7 +161,7 @@ Name | Type | Mandatory | Description
 symbol | STRING | YES |
 origOrderId | STRING | YES |
 origClientOrderId | STRING | YES |
-exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
 
 
 **Response:**
@@ -175,7 +175,7 @@ exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
 
 ### Current open all orders 
 ```
-GET /api/v3/orders  (HMAC SHA256)
+GET /api/v1/orders  (HMAC SHA256)
 ```
 Get all open orders on a symbol. 
 
@@ -185,7 +185,7 @@ Get all open orders on a symbol.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
 symbol | STRING | YES |
 signature | STRING | YES |
 
@@ -219,6 +219,71 @@ signature | STRING | YES |
             "remainedQty": "0.003",
             "txTime": 1552113194000
         }
+    ]
+}
+```
+
+### all trades
+```
+GET /v1/trades (HMAC SHA256)
+```
+Get all orders; canceled, or filled.
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+symbol | STRING | YES |
+exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
+startTime | LONG | NO | Actually system works by day.(exclude hours, minutes, seconds) , ex) 1552089600000
+endTime | LONG | NO |Actually system works by day.(exclude hours, minutes, seconds), ex) 1552089600000
+nextKey | STRING | NO | for Next Page
+
+
+**Response:**
+```javascript
+{
+    "trades": [
+        {
+            "orderId": "229590",
+            "origOrderId": "0",
+            "clientOrderId": "201903091212229590",
+            "origClientOrderId": "00",
+            "symbol": "BTC/KRW",
+            "tradeType": "NEW_ORDER",
+            "tradeStatus": "OK",
+            "rejectReason": "0",
+            "side": "BUY",
+            "type": "MARKET",
+            "price": "0",
+            "origQty": "0.003",
+            "executedPrice": "4339000",
+            "executedQty": "0.003",
+            "remainedQty": "0",
+            "executedPriceSum": "13017",
+            "tradeFee": "13",
+            "txTime": 1552133565000
+        },
+        {
+            "orderId": "205344",
+            "origOrderId": "194962",
+            "clientOrderId": "201903090759205344",
+            "origClientOrderId": "201903090639194962",
+            "symbol": "BTC/KRW",
+            "tradeType": "CANCEL",
+            "tradeStatus": "COMPLETE",
+            "rejectReason": "0",
+            "side": "BUY",
+            "type": "LIMIT",
+            "price": "0",
+            "origQty": "0.003",
+            "executedPrice": "0",
+            "executedQty": "0",
+            "remainedQty": "0",
+            "executedPriceSum": "0",
+            "tradeFee": "0",
+            "txTime": 1552118360000
+        },
     ]
 }
 ```
