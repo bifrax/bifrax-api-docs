@@ -78,7 +78,7 @@ type | LIMIT
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order?exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT&signature=aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96'
+    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/v1/order?exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT&signature=aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96'
     ```
 
 ### Example 2: As a request body
@@ -102,7 +102,7 @@ type | LIMIT
 
     ```
     (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/api/v1/order' -d '{"exchangeType":"LOCAL", "price":"0.1", "quantity":"1", "side":"BUY", "symbol":"LTC/BTC", "type":"LIMIT", "signature":"aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96"}'
+    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/v1/order' -d '{"exchangeType":"LOCAL", "price":"0.1", "quantity":"1", "side":"BUY", "symbol":"LTC/BTC", "type":"LIMIT", "signature":"aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96"}'
 
 ## Orders endpoints
 
@@ -119,7 +119,7 @@ type | LIMIT
 
 ### New order (TRADE)
 ```
-POST /api/v1/order  (HMAC SHA256)
+POST /v1/order  (HMAC SHA256)
 ```
 Send in a new order.
 
@@ -180,7 +180,7 @@ exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
 
 ### Current open all orders 
 ```
-GET /api/v1/orders  (HMAC SHA256)
+GET /v1/orders  (HMAC SHA256)
 ```
 Get all open orders on a symbol. 
 
