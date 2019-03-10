@@ -148,6 +148,30 @@ MARKET | `quantity`
     "quantity": "0.003"
 }
 ```
+### Cancel order (TRADE)
+```
+POST /v1/order/cancel  (HMAC SHA256)
+```
+Cancel an active order.
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+symbol | STRING | YES |
+origOrderId | STRING | YES |
+origClientOrderId | STRING | YES |
+exchangeType: STRING| YES | "LOCAL", "SPOT", "FUTURE"
+
+
+**Response:**
+```javascript
+{
+    "orderId": "344832",
+    "clientOrderId": "201903100614344832",
+    "symbol": "BTC/KRW"
+}
+```
 
 ### Current open all orders 
 ```
