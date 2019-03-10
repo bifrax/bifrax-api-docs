@@ -42,7 +42,7 @@
 * `totalParams` is defined as the `query string` concatenated with the
   `request body` include `application/json`.
   
- ## SIGNED Endpoint Examples for POST /api/v1/order
+ ## SIGNED Endpoint Examples for POST /v1/order
 Here is a step-by-step example of how to send a vaild signed payload from the
 Linux command line using `echo`, `openssl`, and `curl`.
 
