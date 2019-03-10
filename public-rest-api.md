@@ -9,7 +9,13 @@
 * HTTP `5XX` return codes are used for internal errors; the issue is on Bifrax's side.
   It is important to **NOT** treat this as a failure operation; the execution status is
   **UNKNOWN** and could have been a success.
-
+* Any endpoint can return an ERROR; the error payload is as follows:
+```javascript
+{
+  "code": 500,
+  "msg": "Invalid symbol."
+}
+```
 * Specific error codes and messages defined in another document.
 * For `GET` endpoints, parameters must be sent as a `query string`.
 
