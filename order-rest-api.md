@@ -106,10 +106,15 @@ type | LIMIT
 
 ## Orders endpoints
 
-### exchangeType
-"LOCAL": local currency exchanges
-"SPOT": exchange between coins
-"FUTURE": future exchanges
+### Infomation
+
+* ExchangeType
+
+- "LOCAL": local currency exchanges
+
+- "SPOT": exchange between coins
+
+- "FUTURE": future exchanges
 
 
 ### New order (TRADE)
