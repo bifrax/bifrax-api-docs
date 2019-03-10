@@ -37,6 +37,7 @@
   sent in the  `query string` or `request body`.
 * Endpoints use `HMAC SHA256` signatures. The `HMAC SHA256 signature` is a keyed `HMAC SHA256` operation.
   Use your `secretKey` as the key and `totalParams` as the value for the HMAC operation.
+* `totalParams` is must be sorted `alphabetically` for signatures.
 * The `signature` is **not case sensitive**.
 * `totalParams` is defined as the `query string` concatenated with the
   `request body` include `application/json`.
@@ -50,7 +51,6 @@ Key | Value
 apiKey | testApiKey
 secretKey | testSecretKey
 
-Request is must be sorted params(key) alphabetically.
 
 Parameter | Value
 ------------ | ------------
@@ -120,7 +120,6 @@ Send in a new order.
 
 **Parameters:**
 
-* Request is must be sorted params(key) alphabetically.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
@@ -159,7 +158,6 @@ Get all open orders on a symbol.
 
 **Parameters:**
 
-* Request is must be sorted params(key) alphabetically.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
