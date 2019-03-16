@@ -40,70 +40,9 @@
 * The `signature` is **not case sensitive**.
 * `totalParams` is defined as the `query string` concatenated with the
   `request body` include `application/json`.
-  
- ## SIGNED Endpoint Examples for POST /v1/order
-Here is a step-by-step example of how to send a vaild signed payload from the
-Linux command line using `echo`, `openssl`, and `curl`.
+* reference for order-rest-api
 
-Key | Value
------------- | ------------
-apiKey | testApiKey
-secretKey | testSecretKey
-
-
-Parameter | Value
------------- | ------------
-exchangeType| LOCAL
-price | 0.1
-quantity | 1
-side | BUY
-symbol | LTC/BTC
-type | LIMIT
-
-
-
-
-### Example 1: As a query string (Just example, Get mothd is not work for order)
-* **queryString:** exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT
-* **HMAC SHA256 signature:**
-
-    ```
-    [linux]$ echo -n "exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT" | openssl dgst -sha256 -hmac "testSecretKey"
-    (stdin)= aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96
-    ```
-
-
-* **curl command:**
-
-    ```
-    (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/v1/order?exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT&signature=aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96'
-    ```
-
-### Example 2: As a request body
-* **requestBody:** 
-  
-  exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT
-  
-  or
-  
-  {"exchangeType":"LOCAL", "price":"0.1", "quantity":"1", "side":"BUY", "symbol":"LTC/BTC", "type":"LIMIT"}
-  
-* **HMAC SHA256 signature:**
-
-    ```
-    [linux]$ echo -n "exchangeType=LOCAL&price=0.1&quantity=1&side=BUY&symbol=LTC/BTC&type=LIMIT" | openssl dgst -sha256 -hmac "testSecretKey"
-    (stdin)= aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96
-    ```
-
-
-* **curl command:**
-
-    ```
-    (HMAC SHA256)
-    [linux]$ curl -H "X-BIFRAX-APIKEY: testApiKey" -X POST 'https://127.0.0.1/v1/order' -d '{"exchangeType":"LOCAL", "price":"0.1", "quantity":"1", "side":"BUY", "symbol":"LTC/BTC", "type":"LIMIT", "signature":"aa406abc91c8a05f9e3e5d8aa31a9c6ef6ef015ec008f9c6334faa8fdc9c1b96"}'
-
-## Orders endpoints
+## Account endpoints
 
 ### Infomation
 
