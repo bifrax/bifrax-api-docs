@@ -128,7 +128,7 @@ Send in a new order.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType | STRING | NO | 
 symbol | STRING | YES |
 side | ENUM | YES | `BUY`, `SELL`
 type | ENUM | YES | `MARKET`, `LIMIT`
@@ -166,7 +166,7 @@ Name | Type | Mandatory | Description
 symbol | STRING | YES |
 origOrderId | STRING | YES |
 origClientOrderId | STRING | YES |
-exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType | STRING | NO | 
 
 
 **Response:**
@@ -190,7 +190,7 @@ Get all open orders on a symbol.
 
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
-exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType | STRING | NO | 
 symbol | STRING | YES |
 signature | STRING | YES |
 
@@ -239,7 +239,7 @@ Get all orders; canceled, or filled.
 Name | Type | Mandatory | Description
 ------------ | ------------ | ------------ | ------------
 symbol | STRING | YES |
-exchangeType| STRING| YES | "LOCAL", "SPOT", "FUTURE"
+exchangeType | STRING | NO | 
 startTime | LONG | NO | Actually system works by day.(exclude hours, minutes, seconds) , ex) 1552089600000
 endTime | LONG | NO |Actually system works by day.(exclude hours, minutes, seconds), ex) 1552089600000
 nextKey | STRING | NO | for Next Page
