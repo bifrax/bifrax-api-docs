@@ -9,3 +9,4 @@ Name | Description
 ------------ | ------------ 
 [public-rest-api.md](./public-rest-api.md) | Details on the Public Rest API (Public)
 [order-rest-api.md](./order-rest-api.md) | Details on the Order Rest API (Private)
+[account-rest-api.md](./account-rest-api.md) | Details on the Account Rest API (Private)
