@@ -130,7 +130,7 @@ exchangeType | STRING | NO |
 currency | STRING | NO | if not set, all coins
 
 **Response:**
-
+```
   "currency": "PHP",
   "totalAmount": "9999978134.79999924",
   "amount": "9999957126.5",
