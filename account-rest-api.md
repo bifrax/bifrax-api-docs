@@ -48,7 +48,7 @@
 
 * ExchangeType
 
-`LOCAL`: local currency exchanges
+`LOCAL`: local currency exchanges(piat currency)
 
 `SPOT`: exchange between coins
 
@@ -86,6 +86,96 @@ currency | STRING | NO | if not set, all coins
       "marginQuantity": "0",
       "marginPrice": "0",
       "evaluationPrice": "22010"
+    }
+  ]
+}
+```
+### Local Currency withdrawl, deposit list
+```
+GET /v1/ioList (HMAC SHA256)
+```
+Get currency history(piat currency)
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+exchangeType | STRING | NO |
+startTime | LONG | NO | Actually system works by day.(exclude hours, minutes, seconds) , ex) 1552089600000
+endTime | LONG | NO |Actually system works by day.(exclude hours, minutes, seconds), ex) 1552089600000
+
+additional Response parameters infomation on `status`
+
+Type | Additional mandatory response parameters
+------------ | ------------
+`NEW` | initionalized 
+`DOING` | doing
+`DONE`  | finished
+`CANCEL` | canceled
+
+**Response:**
+```
+  "ioList": [
+    {
+      "timeznoe": "UTC",
+      "currency": "",
+      "requestDate": "",
+       "reqeustTime": "",
+       "ioType": "",
+       "amount": "",
+       "fee": "",
+       "approveDate": "",
+       "approveTime": "",
+       "status": "",
+       "widrawalBankCode": "",
+       "widrawalBankName": "",
+       "widrawalBankAccount": "",
+       "widrawalBankAccountName": "",
+       "exchangeRatio": "",
+       "utcTime": "",
+    }
+  ]
+}
+```
+
+### Coin Currency withdrawl, deposit list
+```
+GET /v1/coinIoList (HMAC SHA256)
+```
+Get currency history(piat currency)
+
+**Parameters:**
+
+Name | Type | Mandatory | Description
+------------ | ------------ | ------------ | ------------
+exchangeType | STRING | NO |
+startTime | LONG | NO | Actually system works by day.(exclude hours, minutes, seconds) , ex) 1552089600000
+endTime | LONG | NO |Actually system works by day.(exclude hours, minutes, seconds), ex) 1552089600000
+
+additional Response parameters infomation on `status`
+
+Type | Additional mandatory response parameters
+------------ | ------------
+`NEW` | initionalized 
+`DOING` | doing
+`DONE`  | finished
+`CANCEL` | canceled
+
+**Response:**
+```
+  "ioList": [
+    {
+      "timeznoe": "UTC",
+      "currency": "",
+      "requestDate": "",
+       "reqeustTime": "",
+       "ioType": "",
+       "amount": "",
+       "fee": "",
+       "approveDate": "",
+       "approveTime": "",
+       "status": "",
+       "txId": "",
     }
   ]
 }

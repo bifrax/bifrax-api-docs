@@ -110,7 +110,7 @@ type | LIMIT
 
 * ExchangeType
 
-`LOCAL`: local currency exchanges
+`LOCAL`: local currency exchanges(piat currency)
 
 `SPOT`: exchange between coins
 
